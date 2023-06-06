@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script></script>
+    <style>
+.container{
+    background-color: red;
+    padding: 0;
+    margin: 0;
+    height: 700px;
+    /* width: 900px; */
+    justify-items: start; /* items inside container put them at start */
+    display: grid;
+    
+/* 
+for grid
+justify-items work on container
+justify-self works in items
+
+justify - for horinzontal content
+align - for vertical content
+
+justify+align = place
+place-self
+place-items
+*/
+
+ /*   grid-template-rows: 133px 133px 133px; /* want 3 rows of 133px*/
+ /*   grid-template-columns: 133px 1fr 1fr ; /* want 3 columns */
+    
+ /* instead of above use repeat */
+
+ grid-template-columns: repeat(3,1fr);
+ /* 1fr mean 1 fraction of entire width available*/
+ /* grid-template-rows: repeat(3,1fr); */
+ grid-template-rows: 50px 400px 100px;   
+    row-gap: 20px;
+    column-gap: 20px;
+}
+h1{
+color:gray;
+
+}
+.item{
+/* height:122px;
+width:122px; */
+background-color: aqua;
+}
+
+.item4{
+    justify-self: end;
+}
+.header{
+    /* grid-column-start:1 ;
+    grid-column-end: 4; */
+
+    /* or */
+    grid-column: 1 / span 3;
+}
+.footer{
+    grid-column-start:1 ;
+    grid-column-end: 4;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="item header">
+            <h1>Hi this is header</h1>
+        </div>
+        <div class="item ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis alias voluptates consequatur veniam tempora omnis obcaecati cumque assumenda repellat harum? Eligendi quaerat quam repellendus alias! Reprehenderit consequatur hic quam quas.</div>
+        <div class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, corrupti minima ducimus recusandae esse maxime, optio odio blanditiis reiciendis adipisci asperiores doloribus libero aut totam reprehenderit, natus debitis iste inventore. Autem sunt sit atque rem est iure ea ex quis quam assumenda sequi voluptas necessitatibus unde perferendis consectetur vero, modi numquam obcaecati.</div>
+        <div class="item item4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident odit repellendus dolor tempora sed corporis praesentium at accusantium quibusdam corrupti. Vel consequatur eius quod suscipit reprehenderit reiciendis sint ullam officia. Aspernatur cupiditate laborum hic fuga fugiat recusandae ea natus vero iste modi omnis, itaque sit doloribus beatae consequuntur autem qui, quod tempora pariatur, id repellendus! Corporis rerum culpa ratione quam provident itaque necessitatibus quibusdam, ad dolore repellendus! Repellat accusantium perferendis temporibus voluptatibus deserunt autem inventore recusandae, voluptas beatae. Hic incidunt temporibus cupiditate voluptatibus ab aperiam quisquam explicabo quas debitis obcaecati, harum possimus quia voluptatum alias natus quaerat provident? Reprehenderit molestiae deserunt laudantium consequatur quod excepturi voluptatem nesciunt quibusdam magni nobis, rerum voluptatibus dolorum, iste voluptatum! Autem quasi eveniet doloremque ipsa quaerat nam in, officiis natus sint, delectus modi distinctio, quam nihil molestias debitis doloribus cum deleniti alias harum veniam. Provident ipsum voluptatibus natus! Assumenda debitis obcaecati eveniet quam vitae est voluptas alias rem optio voluptatum! Quibusdam rem temporibus natus repudiandae corporis. Quis ipsam voluptates aperiam dolorem quibusdam sapiente esse iusto voluptas omnis, soluta beatae neque eaque velit magnam, consequatur id veritatis voluptatem. Enim quidem nulla sapiente id, autem obcaecati culpa, hic eligendi nesciunt magnam tempore aperiam in, iste error alias illum libero corporis! Unde, eum aspernatur laboriosam odit maxime ullam a dicta ad est minima voluptatibus molestias praesentium? Quam eius tempore modi repellat maiores delectus at magnam iste atque eaque aspernatur omnis placeat fugit laborum architecto, itaque eligendi eveniet, ullam expedita earum aliquid deleniti vero quod temporibus? Error, adipisci, ipsam ut maiores tempora quidem quae dignissimos temporibus, aperiam cum fugit provident. Nostrum explicabo fugit quisquam impedit. Eius est iure corporis qui ducimus saepe nulla at quisquam incidunt ipsum a fugiat ut nam sit cupiditate, quo perferendis dolore. Sint nisi ipsum cupiditate natus eius? Praesentium architecto officia voluptatum aliquid doloribus unde eius eum expedita quibusdam vel vitae aspernatur omnis aperiam quaerat consequatur, iste dignissimos minus. Alias minus ab, sed qui quod cumque mollitia tempora ipsa totam accusamus officiis delectus consequuntur saepe debitis quia sit sint asperiores et sequi? Ipsum perferendis nostrum obcaecati magnam nemo modi autem quam nihil suscipit officia sint corporis ducimus quasi, adipisci minima harum necessitatibus quod praesentium consequuntur sequi quae consequatur consectetur! Ratione fuga iste amet magnam quisquam nesciunt reiciendis commodi non esse facilis ipsa, pariatur eveniet! Debitis, iusto? Consequatur voluptas, esse libero sunt delectus quis cupiditate dolorum veniam dolorem repellendus quaerat, quo id ex nisi, perferendis numquam?</div>
+        <div class="item footer"><h1>Footer</h1></div>
+
+        
+
+    </div>
+</body>
+</html>

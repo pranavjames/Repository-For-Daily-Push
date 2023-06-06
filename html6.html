@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(() => {
+
+             function funn(element){
+                  console.log("function inside jqery called");
+             }
+
+        });
+
+
+
+        function print(...param) {
+            console.log(param);
+        }
+        element = document.getElementsByClassName("class1");
+
+        element.innerHTML - "rama rama";
+
+        function fun() {
+            element = document.getElementsByClassName("class1");
+            console.log("Element");
+            console.log(element[0].innerHTML = "thereee");
+        }
+
+        function changeColorByElement(element) {
+
+            element.style.color = "red";
+            
+
+        }
+
+        function onLoad(){
+            console.log("noLoad workedd");
+        }
+
+
+        function changeOnLoad(element){
+            element.style.color = "yellow";
+            element.style.border = "3px solid green";
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="class1">div 1
+        <div>Radhe</div>
+    </div>
+    <div class="class2">div 2</div>
+    <div class="class3"><button onclick="fun()">div 3</button></div>
+    <div class="class4" onload="changeOnLoad(this)">div 4</div>
+    <div class="class5" onclick="changeColorByElement(this)">div 5</div>
+    <div class="class6">div 6</div>
+</body>
+
+</html>

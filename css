@@ -1,0 +1,39 @@
+margin: 25px 50px 75px 100px;
+margin: top right bottom left
+
+margin: 25px 50px 75px
+margin: top right,left bottom
+
+margin: 25px 50px;
+margin: top,bottom right,left
+
+margin: 25px
+margin: top,bottom,right,left
+
+margin conventionn is same as padding
+
+padding moves the  internal content and does not changes/reduces the height width of contetnt
+BUT PADDING OVERLAPSE
+
+Height Width
+ininitial - Sets the height/width to its default value
+max-width - width can get minimized on resizing window bu cannot exceed more than that.
+
+
+line oustide borde is outline
+outline-offset - same as padding but outside the border
+
+   Display
+The display property specifies if/how an element is displayed.
+
+    block-level elements:     inline elements:  
+    
+    <div>        
+    <h1> - <h6>                <span>
+    <p>                        <a>  
+    <form>                     <img>    
+    <header>                      
+    <footer>                    
+    <section>                    
+
+p.class => tag p with class
