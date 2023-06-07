@@ -26,61 +26,81 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>    
-    <script>
-
-$(document).ready(()=>{
-    let read_more_button = $(".read-more-btn");
-    let hiddenContent = $(".hidden-content");
-    let content = $(".content");
-    console.log("content",content.text());
-    let textt = content.text().trim();
-
-    console.log("texttt",textt);
-    console.log("texttt.length ",textt.length)
-    if(textt.length<80){
-        
-        read_more_button.hide();
-    }else{
-        content.text(fun(textt,8));
-        hiddenContent.text("");
-    }
-    
-    read_more_button.click(()=>{
-        // read_more_button.text() == "Read More" ? read_more_button.text("Read Less") : read_more_button.text("Read More");
-        if( read_more_button.text() == "Read More"){
-            content.text("");
-            hiddenContent.text(textt);
-            read_more_button.text("Read Less");
-    } else{
-        content.text(fun(textt,8));
-        hiddenContent.text("");
-        read_more_button.text("Read More");
-    
-    
-    }
-    console.log("After texttt",textt)
- });
-
-           
-    });
-
-
-        // let content = "With supporting text below as a natural lead-in to additional content.\
-        //         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, molestias unde harum voluptatem iusto, beatae aut a exercitationem asperiores sit ab impedit culpa, et ad enim! Rerum ut incidunt ea!";
-                
-                // document.getElementsByClassName("content")[0].innerHTML = content;
-
-        // var contentt = document.getElementsByClassName("content")
-        // var hiddenContent = document.getElementsByClassName("hidden-content")[0];
-        // var readMoreBtn = document.getElementsByClassName("read-more-btn");       
  
+ <style>.read-more-btn{
+    display: none;
+}</style>
+ <script>
+debugger;
 
-        function fun(text, number) {
-            for (i = number + 6; i > number - 8; i--) {
-                if (text[i] == " ")
-                    return text.slice(0, i + 1);
-            }
-        }
+///////////////////////////////////////////////////////
+$(document).ready(() => {
+
+let flagForRunOnce = true;
+
+function makeReadMoreVisible(index, element){
+
+    // console.log("start",String(element.innerHTML));
+
+
+          console.log("length =>",$(element).text().length);
+          $(element).text($(element).text().trim());
+          if($(element).text().length > 469){
+            $(element).next().next().show();
+          }
+         
+    
+        
+       let wholeText = getSuitableText($(element).text(),469);
+      
+       $(element).text(wholeText[0]);
+       console.log("wholeText[0] ",wholeText[0]);
+       console.log("wholeText[1] ",wholeText[1]);
+       $(element).next().css("color","blue");
+       $(element).next().text(wholeText[1]);
+       $(element).next().hide();
+
+}
+   if(flagForRunOnce){
+   $(".content").each(makeReadMoreVisible);
+   flagForRunOnce = false; 
+   console.log("here at flagForRunOnce");
+}        
+
+});
+
+function getSuitableText(text, number) {
+for (i = number + 6; i > number - 8 && (i<text.length) ; i--) {
+    let firstHalf = text;
+    console.log(text[i]);
+    if (text[i] == " "){
+        firstHalf = text.slice(0, i + 1);
+        return [text.slice(0, i + 1),text.slice(i,text.length+1)];
+    }
+}
+return [firstHalf,""];
+}
+
+function makeReadMoreVisibleForOwn(element){
+debugger; 
+console.log("element.innerHTML  ",element.innerHTML);
+if(String(element.textContent) == "Read More"){
+    $(element).text("Read Less");
+    $(element).prev().show();
+}
+else{
+    $(element).text("Read More");
+    $(element).prev().hide();
+}
+}
+
+
+
+
+
+
+
+
 
     </script>
     <style>
@@ -144,6 +164,7 @@ $(document).ready(()=>{
                 <span class="content">
                     2] Rerum ut Lorem ipsum 
                     dolor sit amet consectetur adipisicing elit. Cum, praesentium minima perferendis natus repellendus aperiam, veniam autem explicabo incidunt laudantium voluptatum sequi vitae ad aliquid aut illum quidem magni. Placeat.
+               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa quas minima, repudiandae vel eos nostrum quam totam voluptatem voluptates molestias. Autem fuga tempore totam veritatis ut rerum quam consequatur dolores eligendi distinctio dolorum aspernatur enim, eos tempora repudiandae qui ipsa voluptatibus suscipit explicabo voluptates iste quas. Fuga, dolorem quo perferendis illum aperiam optio et debitis laborum rerum eveniet veritatis saepe facilis quos voluptatem accusantium, at quae ducimus! At deserunt ipsa minima aliquid repellendus magnam est ab? Accusamus debitis, saepe non, nihil deserunt hic officia consequatur temporibus sint ad reprehenderit nostrum id dolorem similique minus rem, ipsam maxime autem! Consequuntur, sapiente enim perferendis placeat neque ullam cum laboriosam a sed fuga! Quas autem veritatis assumenda nam tenetur ipsam nostrum, cumque, amet corrupti nesciunt a! Harum voluptatem perspiciatis quaerat velit reiciendis, fugiat voluptates eum praesentium in nulla doloribus quis sint sed optio. Eum ex enim nobis dicta et magni sequi, minima ipsa corporis adipisci suscipit saepe, hic laborum modi quam deserunt dolorum repellendus? Animi eveniet nesciunt odit doloribus reiciendis cum debitis quis architecto ipsum quae at similique sed ipsa magnam eligendi incidunt perferendis, ducimus amet. Itaque praesentium saepe, magnam perferendis repellendus voluptas? Ut ipsam iusto laboriosam voluptatibus provident aliquid. Natus possimus voluptate suscipit, eum, obcaecati quam illum soluta ipsa aspernatur aliquam consequuntur mollitia laborum nihil reiciendis laudantium commodi odit quidem quaerat magni! Consectetur laborum voluptates doloribus voluptatem optio accusamus mollitia ad? Quos blanditiis accusantium cupiditate consectetur labore. Tempore, pariatur atque maxime eligendi repudiandae ipsam enim modi? Ex pariatur, ipsum facilis blanditiis mollitia, fuga odio ad vitae cupiditate culpa dicta. Omnis laboriosam voluptate voluptatum molestiae sed, iusto iste cupiditate magni suscipit praesentium, tenetur voluptates nobis ullam vero amet at error consequatur? Consequatur delectus ipsam dicta hic tempore aspernatur, corrupti incidunt explicabo minima maiores mollitia repellat odio doloribus ipsa eius beatae exercitationem quam eaque autem, iste aliquam magni. Libero temporibus voluptates repellendus sit non reprehenderit distinctio veritatis quos vero laudantium voluptas laboriosam, architecto nulla sequi cumque! Excepturi praesentium ipsum odio iusto, reiciendis eius voluptate asperiores, maxime inventore molestiae repellat esse ipsa. Reprehenderit iusto eius sed! Optio cum modi explicabo? Aliquid sequi, totam maiores id optio, quam incidunt recusandae minima accusamus doloribus animi amet fugiat deserunt laboriosam distinctio magnam nobis voluptates consequuntur culpa. Ducimus, aperiam facere. Dolores dolorem quas excepturi perspiciatis accusantium optio eaque ut nostrum est ex officia, vitae velit? Exercitationem quod voluptatibus, optio veniam est illo maiores tempore cupiditate voluptas ducimus assumenda maxime atque molestiae sapiente, nemo, molestias nihil ab ullam. Libero, eaque, at molestiae expedita corporis tempora amet, assumenda atque tempore rerum inventore esse sapiente enim aspernatur nobis eos! At doloribus provident voluptate tempore id obcaecati officia, commodi sit dolorem, est ipsum, cum totam corrupti dignissimos dolor numquam nisi? Quae ipsam, odio facilis a nulla odit excepturi voluptas maiores vero eius repellat, earum obcaecati reprehenderit ad saepe doloribus maxime dignissimos optio asperiores recusandae. Voluptatum necessitatibus porro dignissimos minus molestias ad atque eligendi ipsa voluptate, voluptatibus laborum veritatis dolores, non est reprehenderit ex, asperiores voluptatem! Tempore, odio ipsum. Corporis, similique error maiores est eligendi, odio, facere eaque animi possimus illum voluptas ipsam. Corporis veritatis, quas cupiditate quidem magnam hic eum autem. Illo in odit numquam accusamus obcaecati et, distinctio eos dicta officiis repellat voluptas. Suscipit minima sapiente quibusdam fugit consectetur, repellendus ipsam, laudantium rerum quas voluptatem quidem aliquid aperiam voluptates sed dolores nisi tenetur, qui nemo esse eum?
                 </span>
                     <span class="hidden-content"></span>
                     <span class="read-more-btn btn btn-primary">Read More</span>
@@ -166,23 +187,6 @@ $(document).ready(()=>{
     </div>
 </body>
 <script>
-    // function toggleContent(){
-    //     btn = document.getElementsByClassName("read-more-btn")[0];
-        
-    //     if(document.getElementsByClassName("read-more-btn")[0].style.display != "none"){
-    //          if(btn.text=="Read More"){
-    //              // preform +
-    //              document.getElementsByClassName("content")[0].innerHTML="";
-    //              document.getElementsByClassName("hidden-content")[0].innerHTML=content;
-    //              btn.text=="Read Less"; 
-    //          }
-    //          else{
-
-    //             document.getElementsByClassName("content")[0].innerHTML=fun(content,30);
-
-    //             btn.text=="Read More";
-    //          }
-    //     }
-    // }
+    
 </script>
 </html>

@@ -6,49 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script>
-
+debugger;
         $(document).ready(() => {
 
-             function funn(element){
-                  console.log("function inside jqery called");
-             }
+            function fun(index, element) {
+
+                console.log("element"+index,element.textContent);
+
+//                 // for IE
+// document.getElementById('myinput').innerText
+
+// // for everyone else
+// document.getElementById('myinput').textContent
+
+                let textt = String(element.textContent).trim();
+                hiddenContent = $(element).next();
+                read_more_button = hiddenContent.next();
+                hiddenContent.css("background-color", "gold");
+
+                if(textt.length<80){   
+        read_more_button.hide();
+    }else{
+        element.innerHTML = funn(textt,20);
+        hiddenContent.innerHTML = "";
+    }
+
+    read_more_button.click(()=>{
+        // read_more_button.text() == "Read More" ? read_more_button.text("Read Less") : read_more_button.text("Read More");
+        if( read_more_button.text() == "Read More"){
+            element.innerHTML="";
+            hiddenContent.text(textt);
+            read_more_button.text("Read Less");
+    } else{
+        element.css.text(funn(textt,20));
+        hiddenContent.text("");
+        read_more_button.text("Read More");
+    
+    
+    }
+    console.log("After texttt",textt)
+ });
+
+
+
+            }
+
+
+
+            // Select all elements you want to apply the function to
+            var elements = $(".content");
+            // console.log("elements" ,elements);
+
+            // Call the function for each element
+            elements.each(fun);
 
         });
 
-
-
-        function print(...param) {
-            console.log(param);
-        }
-        element = document.getElementsByClassName("class1");
-
-        element.innerHTML - "rama rama";
-
-        function fun() {
-            element = document.getElementsByClassName("class1");
-            console.log("Element");
-            console.log(element[0].innerHTML = "thereee");
+        function funn(text, number) {
+            for (i = number + 6; i > number - 8; i--) {
+                if (text[i] == " ")
+                    return text.slice(0, i + 1);
+            }
         }
 
-        function changeColorByElement(element) {
-
-            element.style.color = "red";
-            
-
-        }
-
-        function onLoad(){
-            console.log("noLoad workedd");
-        }
-
-
-        function changeOnLoad(element){
-            element.style.color = "yellow";
-            element.style.border = "3px solid green";
-        }
+        
+    
+       
     </script>
 
 </head>
@@ -58,10 +86,20 @@
         <div>Radhe</div>
     </div>
     <div class="class2">div 2</div>
-    <div class="class3"><button onclick="fun()">div 3</button></div>
-    <div class="class4" onload="changeOnLoad(this)">div 4</div>
-    <div class="class5" onclick="changeColorByElement(this)">div 5</div>
+   
     <div class="class6">div 6</div>
+    <div class="parent">
+        <div class="content">Parent1 sibling 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sit facere ipsa eius eveniet harum in repellendus quibusdam tenetur, doloribus atque ullam nobis culpa odio aperiam ab nostrum numquam suscipit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias praesentium dicta soluta unde, obcaecati delectus ipsa, optio reiciendis vel quaerat autem reprehenderit illo fuga numquam consequuntur minus? Optio, repellendus rerum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima, illo beatae. Minus, pariatur quibusdam inventore cumque enim asperiores nulla iure debitis quia perspiciatis commodi? Quo accusantium asperiores porro? Asperiores, corporis! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla rem deleniti eveniet necessitatibus ab, facilis aliquam sequi doloremque maiores magni velit, consequatur veniam assumenda labore, porro quibusdam distinctio fuga reiciendis.</div>
+        <div class="hidden-content"></div>
+        <div class="read-more-btn btn btn-primary">Read More</div>
+        
+    </div>
+    <div class="parent">
+        <div class="content">Parent2 sibling 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem cupiditate explicabo laudantium accusamus pariatur totam cumque quasi veniam tempore blanditiis iusto numquam voluptates id, consequuntur dicta temporibus cum eius adipisci Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi eligendi vitae vel quisquam modi similique? Aut dolore hic provident, voluptas dolorem vero atque numquam sapiente et voluptatibus impedit saepe.</div>
+        <div class="hidden-content"></div>
+        <div class="read-more-btn btn btn-primary">Read More</div>
+        
+    </div>
 </body>
 
 </html>
